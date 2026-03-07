@@ -1,0 +1,46 @@
+POST http://localhost:9080/api/users/register
+Content-Type: application/json
+
+{
+  "username": "Sakshi",
+  "password": "Sakku123",
+  "email": "sakshi@example.com",
+  "name": "Sakshi"
+}
+
+
+###
+
+POST http://localhost:9080/api/users/login
+Content-Type: application/json
+
+{
+  "email": "sakshi@example.com",
+  "password": "Sakku123"
+}
+
+
+###
+
+GET http://localhost:9080/api/users/get_user_and_profile
+Content-Type: application/json
+token: 82c85e59922388d9619d6a0e378688ccd84e4330c1e8ee224158e836808569d5
+
+
+###
+
+POST http://localhost:9080/api/users/update_profile_data
+Content-Type: application/json
+token: 82c85e59922388d9619d6a0e378688ccd84e4330c1e8ee224158e836808569d5
+
+{
+  "name": "Sakshi",
+  "bio": "Software Developer and Tech Enthusiast",
+  "location": "India"
+}
+
+
+###
+
+GET http://localhost:9080/api/users/get_all_user_profile
+Content-Type: application/json

@@ -1,0 +1,14 @@
+# environment variables
+.env
+
+# dependencies
+node_modules/
+
+# macOS junk
+.DS_Store
+
+# logs
+*.log
+
+# uploads
+uploads/
