@@ -107,7 +107,7 @@ export default function FeedRightSidebar() {
                 >
                   <div className={styles.suggestionAvatar}>
                     {u.profilePicture ? (
-                      <img src={`http://localhost:9080/${u.profilePicture}`} alt="" />
+                      <img src={`https://socialmedia-3yhq.onrender.com/${u.profilePicture}`} alt="" />
                     ) : (
                       <span>{u.name?.charAt(0)?.toUpperCase() || "?"}</span>
                     )}

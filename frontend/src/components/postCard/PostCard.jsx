@@ -49,9 +49,9 @@ export default function PostCard({ post, onClick }) {
       {post.media && (
         <div className={styles.media}>
           {post.fileType?.startsWith("image") || ["jpg","jpeg","png","gif","webp"].includes(post.fileType) ? (
-            <img src={`http://localhost:9080/${post.media}`} alt="Post media" />
+            <img src={`https://socialmedia-3yhq.onrender.com/${post.media}`} alt="Post media" />
           ) : (
-            <video src={`http://localhost:9080/${post.media}`} controls />
+            <video src={`https://socialmedia-3yhq.onrender.com/${post.media}`} controls />
           )}
         </div>
       )}
@@ -60,7 +60,7 @@ export default function PostCard({ post, onClick }) {
         <div className={styles.header}>
           <div className={styles.avatar}>
             {user.profilePicture ? (
-              <img src={`http://localhost:9080/${user.profilePicture}`} alt={user.name} />
+              <img src={`https://socialmedia-3yhq.onrender.com/${user.profilePicture}`} alt={user.name} />
             ) : (
               <span>{user.name?.charAt(0)?.toUpperCase() || "?"}</span>
             )}

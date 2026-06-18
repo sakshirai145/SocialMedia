@@ -69,7 +69,7 @@ export default function CommentSection({ postId }) {
             <div key={c._id} className={styles.comment}>
               <div className={styles.avatar}>
                 {c.userId?.profilePicture ? (
-                  <img src={`http://localhost:9080/${c.userId.profilePicture}`} alt="" />
+                  <img src={`https://socialmedia-3yhq.onrender.com/${c.userId.profilePicture}`} alt="" />
                 ) : (
                   <span>{c.userId?.name?.charAt(0)?.toUpperCase() || "?"}</span>
                 )}

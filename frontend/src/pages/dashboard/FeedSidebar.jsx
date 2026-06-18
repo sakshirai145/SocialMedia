@@ -40,7 +40,7 @@ export default function FeedSidebar() {
   });
 
   const avatarUrl = user?.userId?.profilePicture
-    ? `http://localhost:9080/${user.userId.profilePicture}`
+    ? `https://socialmedia-3yhq.onrender.com/${user.userId.profilePicture}`
     : null;
 
   return (

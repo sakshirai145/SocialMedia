@@ -215,7 +215,7 @@ export default function MyConnectionsPage() {
                         <div className={styles.requestInfo} onClick={() => navigate(`/user/${reqUser._id}`)}>
                           <div className={styles.requestAvatar}>
                             {reqUser.profilePicture ? (
-                              <img src={`http://localhost:9080/${reqUser.profilePicture}`} alt="" />
+                              <img src={`https://socialmedia-3yhq.onrender.com/${reqUser.profilePicture}`} alt="" />
                             ) : (
                               <span>{reqUser.name?.charAt(0)?.toUpperCase() || "?"}</span>
                             )}
@@ -250,7 +250,7 @@ export default function MyConnectionsPage() {
                         <div className={styles.requestInfo} onClick={() => navigate(`/user/${reqUser._id}`)}>
                           <div className={styles.requestAvatar}>
                             {reqUser.profilePicture ? (
-                              <img src={`http://localhost:9080/${reqUser.profilePicture}`} alt="" />
+                              <img src={`https://socialmedia-3yhq.onrender.com/${reqUser.profilePicture}`} alt="" />
                             ) : (
                               <span>{reqUser.name?.charAt(0)?.toUpperCase() || "?"}</span>
                             )}
@@ -285,7 +285,7 @@ export default function MyConnectionsPage() {
                           <div key={req._id} className={styles.connectionCard} onClick={() => navigate(`/user/${connUser._id}`)}>
                             <div className={styles.connectionAvatar}>
                               {connUser.profilePicture ? (
-                                <img src={`http://localhost:9080/${connUser.profilePicture}`} alt="" />
+                                <img src={`https://socialmedia-3yhq.onrender.com/${connUser.profilePicture}`} alt="" />
                               ) : (
                                 <span>{connUser.name?.charAt(0)?.toUpperCase()}</span>
                               )}
@@ -342,7 +342,7 @@ export default function MyConnectionsPage() {
                           <div className={styles.cardClickable} onClick={() => navigate(`/user/${pUser._id}`)}>
                             <div className={styles.avatar}>
                               {pUser.profilePicture ? (
-                                <img src={`http://localhost:9080/${pUser.profilePicture}`} alt="" />
+                                <img src={`https://socialmedia-3yhq.onrender.com/${pUser.profilePicture}`} alt="" />
                               ) : (
                                 <span>{pUser.name?.charAt(0)?.toUpperCase() || "?"}</span>
                               )}

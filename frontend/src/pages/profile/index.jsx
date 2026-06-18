@@ -322,7 +322,7 @@ export default function Profile() {
         <div className={styles.profileCard}>
           <div className={styles.banner}>
             {profile?.coverPicture ? (
-              <img src={`http://localhost:9080/${profile.coverPicture}`} alt="" className={styles.coverImg} />
+              <img src={`https://socialmedia-3yhq.onrender.com/${profile.coverPicture}`} alt="" className={styles.coverImg} />
             ) : (
               <div className={styles.bannerGradient} />
             )}
@@ -336,7 +336,7 @@ export default function Profile() {
           <div className={styles.profileContent}>
             <div className={styles.avatarWrap} onClick={() => fileRef.current?.click()}>
               {user?.profilePicture ? (
-                <img src={`http://localhost:9080/${user.profilePicture}`} alt="" className={styles.avatarImg} />
+                <img src={`https://socialmedia-3yhq.onrender.com/${user.profilePicture}`} alt="" className={styles.avatarImg} />
               ) : (
                 <span className={styles.avatarLetter}>{user?.name?.charAt(0)?.toUpperCase() || "?"}</span>
               )}
