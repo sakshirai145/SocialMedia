@@ -1,0 +1,160 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #f0f2f5;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #050505;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+
+.backBtn:hover {
+  background: #e4e6eb;
+}
+
+.profileCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+.banner {
+  height: 100px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.profileContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem 1.5rem;
+  margin-top: -40px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #6366f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-weight: 700;
+  color: white;
+  font-size: 1.8rem;
+  border: 4px solid white;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #050505;
+  margin: 0 0 0.2rem;
+}
+
+.username {
+  font-size: 0.95rem;
+  color: #65676b;
+  margin: 0 0 0.25rem;
+}
+
+.bio {
+  font-size: 0.9rem;
+  color: #444;
+  margin: 0.5rem 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.postCount {
+  font-size: 0.85rem;
+  color: #6366f1;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+}
+
+.mutualCount {
+  font-size: 0.8rem;
+  color: #65676b;
+  font-weight: 500;
+  margin: 0.25rem 0 0;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  color: #65676b;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 4px solid #e4e6eb;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #f7f8fa;
+  border-radius: 8px;
+  color: #65676b;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.grid > * {
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    column-count: 1;
+  }
+}

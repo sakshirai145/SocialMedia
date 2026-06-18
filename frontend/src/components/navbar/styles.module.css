@@ -1,0 +1,105 @@
+.container {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 60px;
+}
+
+.navBar > h1 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+  cursor: pointer;
+  margin: 0;
+  letter-spacing: -0.5px;
+  transition: var(--transition);
+}
+
+.navBar > h1:hover {
+  opacity: 0.85;
+}
+
+.navBarOptionContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navLinkGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.userGreeting {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.userGreeting span {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.navLink {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  margin: 0;
+  transition: var(--transition);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.navLink:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.logoutLink {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--danger);
+  cursor: pointer;
+  margin: 0;
+  transition: var(--transition);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.logoutLink:hover {
+  background: var(--danger-light);
+}
+
+.buttonJoin {
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1.25rem;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+.buttonJoin:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}

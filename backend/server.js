@@ -6,31 +6,42 @@ import mongoose from "mongoose";
 import postsRoutes from "./routes/posts.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
-dotenv.config();
+
+dotenv.config({ path: "./.env" });
 
 const app = express();
 
+
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// routes
+
 app.use("/api/posts", postsRoutes);
 app.use("/api/users", userRoutes);
+
+
 app.use(express.static("uploads"));
+
+const PORT = process.env.PORT || 9080;
 
 const start = async () => {
   try {
+    if (!process.env.MONGO_URI) {
+      throw new Error("MONGO_URI is missing in .env file");
+    }
 
-    await mongoose.connect(process.env.MONGO_URI);
+    const connection = await mongoose.connect(process.env.MONGO_URI);
 
-    console.log("MongoDB Connected");
+    console.log(`MongoDB Connected: ${connection.connection.host}`);
 
-    app.listen(9080, () => {
-      console.log("Server running on port 9080");
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
     });
 
   } catch (error) {
-    console.error("MongoDB connection failed:", error);
+    console.error("Startup error:", error.message);
+    process.exit(1);
   }
 };
 

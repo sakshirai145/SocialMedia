@@ -35,6 +35,21 @@ const workSchema = new mongoose.Schema({
 });
 
 
+const growthSchema = new mongoose.Schema({
+    title:{
+        type:String,
+        default:'',
+    },
+    description:{
+        type:String,
+        default:'',
+    },
+    year:{
+        type:String,
+        default:'',
+    },
+});
+
 const ProfileSchema = new mongoose.Schema({
     userId:{
         type:mongoose.Schema.Types.ObjectId,
@@ -55,6 +70,30 @@ const ProfileSchema = new mongoose.Schema({
     education:{
         type:[educationSchema],
         default:[]
+    },
+    interests:{
+        type:[String],
+        default:[]
+    },
+    skills:{
+        type:[String],
+        default:[]
+    },
+    coverPicture:{
+        type:String,
+        default:'',
+    },
+    dateOfBirth:{
+        type:String,
+        default:'',
+    },
+    growthJourney:{
+        type:[growthSchema],
+        default:[]
+    },
+    headline:{
+        type:String,
+        default:'',
     },
 
 });

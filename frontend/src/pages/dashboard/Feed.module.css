@@ -1,0 +1,717 @@
+/* =============================================
+   Sidebar
+   ============================================= */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Profile Card */
+.profileCard {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 1.5rem 1.25rem 1.25rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.profileCard:hover {
+  box-shadow: var(--shadow);
+}
+
+.profileAvatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  overflow: hidden;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.6rem;
+  position: relative;
+  box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--primary);
+  transition: var(--transition);
+}
+
+.profileCard:hover .profileAvatar {
+  box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--primary-hover);
+}
+
+.profileAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileName {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.15rem;
+  line-height: 1.3;
+}
+
+.profileHeadline {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+  line-height: 1.4;
+}
+
+/* Stats */
+.profileStats {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.profileStat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  border: none;
+  background: var(--bg-secondary);
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.25rem;
+  transition: var(--transition);
+  outline-offset: 2px;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.profileStat::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--primary);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.profileStat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.profileStat:hover::before {
+  opacity: 0.05;
+}
+
+.profileStat:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.profileStat:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.statValue {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+  position: relative;
+}
+
+.statLabel {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  position: relative;
+}
+
+/* Navigation */
+.nav {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  padding: 0.5rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: left;
+  transition: var(--transition);
+  font-family: inherit;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  position: relative;
+}
+
+.navItem:hover {
+  background: var(--bg-secondary);
+  color: var(--text);
+}
+
+.navItem:active {
+  transform: scale(0.98);
+}
+
+.navItem svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  stroke: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.navItem:hover svg {
+  stroke: var(--primary);
+}
+
+.navItem span {
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.navItemActive {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.navItemActive svg {
+  stroke: var(--primary);
+}
+
+.navItemActive:hover {
+  background: var(--primary-light);
+}
+
+/* =============================================
+   Right Sidebar
+   ============================================= */
+.rightSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.widget {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  animation: fadeIn 0.4s ease;
+}
+
+.widget:hover {
+  box-shadow: var(--shadow);
+}
+
+.widgetTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.widgetTitle svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--primary);
+  flex-shrink: 0;
+}
+
+.widgetEmpty {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: 0.75rem 0;
+  margin: 0;
+}
+
+/* Profile Strength */
+.strengthContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.strengthCircle {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.strengthCircle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.strengthCircleBg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 5;
+}
+
+.strengthCircleFill {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.strengthCircleLabel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.strengthInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.strengthInfo p {
+  margin: 0;
+}
+
+.strengthTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.15rem;
+}
+
+.strengthLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.strengthBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+.strengthBadge svg {
+  width: 12px;
+  height: 12px;
+}
+
+.badgeStrong {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16A34A;
+}
+
+.badgeGood {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+}
+
+.badgeFair {
+  background: rgba(245, 158, 11, 0.1);
+  color: #D97706;
+}
+
+.badgeWeak {
+  background: rgba(239, 68, 68, 0.1);
+  color: #DC2626;
+}
+
+/* Suggested Connections */
+.suggestionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.suggestionItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.suggestionItem:hover {
+  background: var(--bg-secondary);
+  transform: translateX(3px);
+}
+
+.suggestionAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.suggestionAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.suggestionInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.suggestionName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.suggestionUsername {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Recent Activity */
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.activityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.activityItem:hover {
+  background: var(--bg-secondary);
+}
+
+.activityIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.activityIcon svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--primary);
+}
+
+.activityText {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.activityText strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.activityTime {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin-top: 0.2rem;
+}
+
+/* =============================================
+   Create Post
+   ============================================= */
+.createPost {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.createPost:focus-within {
+  box-shadow: var(--shadow);
+  border-color: var(--primary);
+}
+
+.createPostForm {
+  padding: 1rem 1.25rem;
+}
+
+.createPostInputRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.createPostAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.createPostAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.createPostInput {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  color: var(--text);
+  background: var(--bg-secondary);
+  transition: var(--transition);
+}
+
+.createPostInput:focus {
+  background: var(--surface);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.createPostInput::placeholder {
+  color: var(--text-tertiary);
+}
+
+.createPostPreview {
+  position: relative;
+  margin-top: 0.85rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.createPostPreview img,
+.createPostPreview video {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+
+.createPostRemove {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.createPostRemove:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.createPostFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.createPostMediaBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.createPostMediaBtn:hover {
+  background: var(--bg-secondary);
+  color: var(--primary);
+}
+
+.createPostMediaBtn svg {
+  transition: var(--transition);
+}
+
+.createPostMediaBtn:hover svg {
+  stroke: var(--primary);
+}
+
+.createPostSubmit {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.createPostSubmit:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.createPostSubmit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.createPostSubmit:disabled {
+  background: var(--text-tertiary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* =============================================
+   Feed
+   ============================================= */
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  color: var(--text-secondary);
+  gap: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.loading p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.empty {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.empty p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.feedHighlight {
+  animation: feedPulse 0.8s ease-out;
+}
+
+@keyframes feedPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.08); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}

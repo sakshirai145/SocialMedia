@@ -1,0 +1,60 @@
+.wrapper {
+  position: relative;
+}
+
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #65676b;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.toggleBtn:hover {
+  background: #f0f2f5;
+  color: #1877f2;
+}
+
+.picker {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  padding: 0.5rem;
+  background: white;
+  border: 1px solid #e4e6eb;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 260px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 1.15rem;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  padding: 0;
+}
+
+.emoji:hover {
+  background: #f0f2f5;
+}

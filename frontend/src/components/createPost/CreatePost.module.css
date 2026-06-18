@@ -1,0 +1,124 @@
+.container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.form {
+  padding: 1rem;
+}
+
+.heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #050505;
+  margin-bottom: 0.75rem;
+}
+
+.textarea {
+  width: 100%;
+  border: 1px solid #e4e6eb;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textarea:focus {
+  border-color: #1877f2;
+}
+
+.preview {
+  position: relative;
+  margin-top: 0.75rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0f2f5;
+}
+
+.preview img,
+.preview video {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+
+.removeMedia {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e4e6eb;
+}
+
+.mediaBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #65676b;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.mediaBtn:hover {
+  background: #f0f2f5;
+  color: #1877f2;
+}
+
+.submitBtn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #1877f2;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submitBtn:hover {
+  background: #166fe5;
+}
+
+.submitBtn:disabled {
+  background: #a0c4f7;
+  cursor: not-allowed;
+}
+
+.message {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: #65676b;
+  text-align: center;
+}
