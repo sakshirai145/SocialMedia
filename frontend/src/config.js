@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const clientServer = axios.create({
-  baseURL: "/api",
+  baseURL: "https://socialmedia-3yhq.onrender.com/api",
 });
 
 const savedToken = typeof localStorage !== "undefined"
