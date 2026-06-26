@@ -1,8 +1,1 @@
-
-
-const router = useRouter();
-const postReducer=useSelector((state)=>state.postReducer);
-const dispatch = useDispatch();
-
-
-
+export { default } from "./[username].jsx";

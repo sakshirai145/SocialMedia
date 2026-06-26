@@ -63,7 +63,7 @@ export default function UserDetail() {
               <div className={styles.profileContent}>
                 <div className={styles.avatar}>
                   {user.profilePicture ? (
-                    <img src={`https://socialmedia-3yhq.onrender.com/${user.profilePicture}`} alt="" />
+                    <img src={`https://socialmedia-3yhq.onrender.com/uploads/${user.profilePicture}`} alt="" />
                   ) : (
                     <span>{user.name?.charAt(0)?.toUpperCase() || "?"}</span>
                   )}

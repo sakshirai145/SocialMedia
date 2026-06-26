@@ -10,8 +10,6 @@ export const createPost = async (req, res) => {
   try {
     const token = req.body.token;
 
-    console.log("REQ BODY:", req.body);
-    console.log("TOKEN:", token);
 
     if (!token) {
       return res.status(400).json({ message: "Token is required" });

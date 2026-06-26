@@ -40,8 +40,6 @@ export default function Profile() {
     dateOfBirth: "",
   });
 
-  console.log("DISPLAY SOURCE", { profile: profile?.skills, user: user?.skills, form: formData?.skills, editing });
-
   const strengthInfo = useMemo(() => calcProfileStrength(profile, user), [profile, user]);
 
   useEffect(() => {
@@ -89,7 +87,6 @@ export default function Profile() {
     } else {
       const val = profile?.[field];
       const arrFields = ["skills", "interests", "education", "postwork", "growthJourney"];
-      console.log("STEP0 startEdit", { field, profileVal: val, isArray: Array.isArray(val), willSetTo: Array.isArray(val) ? [...val] : (arrFields.includes(field) ? [] : val || "") });
       setFormData((prev) => ({
         ...prev,
         [field]: Array.isArray(val) ? [...val] : (arrFields.includes(field) ? [] : val || ""),
@@ -109,10 +106,8 @@ export default function Profile() {
 
   const saveField = (field) => {
     const val = field === "bio" ? editValue : formData[field];
-    console.log("STEP2 before save", { field, val, formDataSkills: formData.skills });
     setSavingSection(field);
     dispatch(updateProfileData({ [field]: val })).then((res) => {
-      console.log("STEP2 after save", { field, val, resPayload: res.payload });
       if (res.meta.requestStatus === "fulfilled") {
         if (field !== "bio") {
           setFormData((prev) => ({ ...prev, [field]: val }));
@@ -165,7 +160,6 @@ export default function Profile() {
     if (!trimmed) return;
     setFormData((prev) => {
       const updated = [...prev[field], trimmed];
-      console.log("STEP1 addTag", { field, val: trimmed, formDataAfter: updated });
       return { ...prev, [field]: updated };
     });
   };
@@ -322,7 +316,7 @@ export default function Profile() {
         <div className={styles.profileCard}>
           <div className={styles.banner}>
             {profile?.coverPicture ? (
-              <img src={`https://socialmedia-3yhq.onrender.com/${profile.coverPicture}`} alt="" className={styles.coverImg} />
+              <img src={`https://socialmedia-3yhq.onrender.com/uploads/${profile.coverPicture}`} alt="" className={styles.coverImg} />
             ) : (
               <div className={styles.bannerGradient} />
             )}
@@ -336,7 +330,7 @@ export default function Profile() {
           <div className={styles.profileContent}>
             <div className={styles.avatarWrap} onClick={() => fileRef.current?.click()}>
               {user?.profilePicture ? (
-                <img src={`https://socialmedia-3yhq.onrender.com/${user.profilePicture}`} alt="" className={styles.avatarImg} />
+                <img src={`https://socialmedia-3yhq.onrender.com/uploads/${user.profilePicture}`} alt="" className={styles.avatarImg} />
               ) : (
                 <span className={styles.avatarLetter}>{user?.name?.charAt(0)?.toUpperCase() || "?"}</span>
               )}

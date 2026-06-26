@@ -16,7 +16,7 @@ export default function FeedCreatePost() {
   const fileRef = useRef(null);
 
   const avatarUrl = user?.profilePicture
-    ? `https://socialmedia-3yhq.onrender.com/${user.profilePicture}`
+    ? `https://socialmedia-3yhq.onrender.com/uploads/${user.profilePicture}`
     : null;
 
   const handleFileChange = (e) => {

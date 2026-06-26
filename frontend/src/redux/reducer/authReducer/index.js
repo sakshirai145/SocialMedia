@@ -88,11 +88,6 @@ const authSlice = createSlice({
             state.isError = false;
             if (!action.payload) return;
             state.profileFetched = true;
-            console.log("STEP5 reducer getAboutUser", {
-                prevUserType: typeof state.user,
-                incomingSkills: action.payload?.skills,
-                fullPayload: action.payload,
-            });
             const existing = typeof state.user === 'object' && state.user !== null ? state.user : {};
             state.user = {
                 ...existing,
@@ -142,21 +137,12 @@ const authSlice = createSlice({
         })
         .addCase(cancelConnectionRequest.fulfilled, (state, action) => {
             const { connectionId } = action.payload;
-            console.log("[CANCEL DBG 5a] Reducer fulfilled. connectionId:", connectionId);
-            console.log("[CANCEL DBG 5b] outgoingRequests BEFORE filter:", JSON.parse(JSON.stringify(state.outgoingRequests)).map(r => ({
-                _id: r._id,
-                userId: r.userId?._id?.toString(),
-                connectionId: r.connectionId?._id?.toString(),
-                status_accepted: r.status_accepted
-            })));
             state.outgoingRequests = state.outgoingRequests.filter((r) =>
                 !(r.connectionId?._id?.toString() === connectionId && r.status_accepted === null)
             );
-            console.log("[CANCEL DBG 5c] outgoingRequests AFTER filter:", state.outgoingRequests.length);
             state.message = action.payload.message;
         })
         .addCase(cancelConnectionRequest.rejected, (state, action) => {
-            console.error("[CANCEL DBG 5r] Reducer rejected. payload:", action.payload, "error:", action.error);
             state.message = action.payload?.message || action.error?.message || "Cancel request failed";
         })
         .addCase(removeConnection.fulfilled, (state, action) => {
@@ -171,13 +157,6 @@ const authSlice = createSlice({
         })
         .addCase(updateProfileData.fulfilled, (state, action) => {
             state.message = action.payload.message;
-            console.log("STEP4 reducer updateProfileData", {
-                prevSkills: state.user?.skills,
-                incomingSkills: action.payload?.profileData?.skills,
-                stateUserType: typeof state.user,
-                isObject: typeof state.user === 'object' && state.user !== null,
-                willMerge: state.user && typeof state.user === 'object' && action.payload.profileData,
-            });
             if (state.user && typeof state.user === 'object' && action.payload.profileData) {
                 Object.assign(state.user, action.payload.profileData);
             }

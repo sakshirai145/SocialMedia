@@ -40,7 +40,7 @@ export default function FeedSidebar() {
   });
 
   const avatarUrl = user?.userId?.profilePicture
-    ? `https://socialmedia-3yhq.onrender.com/${user.userId.profilePicture}`
+    ? `https://socialmedia-3yhq.onrender.com/uploads/${user.userId.profilePicture}`
     : null;
 
   return (
@@ -54,7 +54,7 @@ export default function FeedSidebar() {
           )}
         </div>
         <h3 className={styles.profileName}>{user?.userId?.name || "User"}</h3>
-        <p className={styles.profileHeadline}>{user?.userId?.headline || ""}</p>
+        <p className={styles.profileHeadline}>{user?.headline || ""}</p>
 
         <div className={styles.profileStats}>
           <button

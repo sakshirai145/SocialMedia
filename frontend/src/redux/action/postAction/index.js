@@ -21,9 +21,7 @@ export const createPost = createAsyncThunk(
   "post/createPost",
   async (postData, thunkAPI) => {
     try {
-      const response = await clientServer.post("/posts/post", postData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      const response = await clientServer.post("/posts/post", postData);
 
       const authUser = thunkAPI.getState().auth.user;
       const userIdData = authUser?.userId || authUser;

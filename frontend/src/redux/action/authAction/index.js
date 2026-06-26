@@ -87,8 +87,9 @@ export const updateProfilePicture = createAsyncThunk(
   "user/updateProfilePicture",
   async (formData, thunkAPI) => {
     try {
+      const token = localStorage.getItem("token");
       const response = await clientServer.post("/users/update_profile_picture", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { token },
       });
       return thunkAPI.fulfillWithValue({ message: response.data.message });
     } catch (error) {
@@ -117,20 +118,11 @@ export const sendConnectionRequest = createAsyncThunk(
 export const cancelConnectionRequest = createAsyncThunk(
   "user/cancelConnectionRequest",
   async ({ connectionId }, thunkAPI) => {
-    console.log("[CANCEL DBG 2] Action received payload:", JSON.stringify({ connectionId }));
     try {
       const token = localStorage.getItem("token");
-      const url = "/users/user/cancel_connection_request";
-      const body = { token, connectionId };
-      console.log("[CANCEL DBG 2b] API call to:", url, "body:", JSON.stringify({ ...body, token: token ? token.slice(0, 8) + "..." : "null" }));
-      console.log("[CANCEL DBG 2c] typeof connectionId:", typeof connectionId, "connectionId value:", connectionId);
-      const response = await clientServer.post(url, body);
-      console.log("[CANCEL DBG 4a] API response:", response.status, JSON.stringify(response.data));
+      const response = await clientServer.post("/users/user/cancel_connection_request", { token, connectionId });
       return thunkAPI.fulfillWithValue({ connectionId, message: response.data.message });
     } catch (error) {
-      console.error("[CANCEL DBG 4e] API error status:", error.response?.status);
-      console.error("[CANCEL DBG 4e] API error data:", JSON.stringify(error.response?.data));
-      console.error("[CANCEL DBG 4e] API error message:", error.message);
       return thunkAPI.rejectWithValue(
         error.response?.data || { message: error.message }
       );
@@ -220,7 +212,6 @@ export const updateProfileData = createAsyncThunk(
   async (profileData, thunkAPI) => {
     try {
       const token = localStorage.getItem("token");
-      console.log("STEP3 API payload", { profileData, skills: profileData.skills });
       const response = await clientServer.post("/users/update_profile_data", profileData, {
         headers: { token },
       });
@@ -246,7 +237,6 @@ export const getAboutUser = createAsyncThunk(
         config.signal = user.signal;
       }
       const response = await clientServer.get("/users/get_user_and_profile", config);
-      console.log("STEP3b getAboutUser response", { skills: response.data?.skills, fullKeys: Object.keys(response.data) });
 
       return thunkAPI.fulfillWithValue(response.data)
     } catch (error) {

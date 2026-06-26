@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { reset } from "../../redux/reducer/authReducer";
+import { clientServer } from "../../config";
 import styles from "./styles.module.css";
 
 export default function NavBarComponent() {
@@ -10,6 +11,16 @@ export default function NavBarComponent() {
   const authState = useSelector((state) => state.auth)
   const navigate = useNavigate();
   const loggedIn = useSelector((state) => state.auth.loggedIn);
+
+  const handleLogout = async () => {
+    try {
+      await clientServer.post("/users/logout");
+    } catch {
+      // proceed with local logout even if API call fails
+    }
+    dispatch(reset());
+    navigate("/login");
+  };
 
   return (
     <div className={styles.container}>
@@ -29,10 +40,7 @@ export default function NavBarComponent() {
               <div className={styles.navLinkGroup}>
               <p className={styles.userGreeting}>Hey <span>{authState.user?.userId?.name}</span></p>
               <p className={styles.navLink} onClick={() => navigate("/profile")}>Profile</p>
-              <p className={styles.logoutLink} onClick={()=>{
-                dispatch(reset())
-                navigate("/login")
-              }}>Logout</p>
+              <p className={styles.logoutLink} onClick={handleLogout}>Logout</p>
               </div>
             )}
 

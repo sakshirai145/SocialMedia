@@ -1,9 +1,11 @@
 import express from "express";
 import multer from "multer";
+import path from "path";
 
 import {
   register,
   login,
+  logout,
   uploadProfilePicture,
   uploadCoverPicture,
   updateUserProfile,
@@ -29,16 +31,31 @@ const storage = multer.diskStorage({
     cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname);
+    const ext = path.extname(file.originalname);
+    cb(null, Date.now() + "-" + Math.round(Math.random() * 1E9) + ext);
   }
 });
+
+const imageFilter = (req, file, cb) => {
+  const allowed = ["image/jpeg", "image/png", "image/gif", "image/webp"];
+  if (allowed.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error("Only JPEG, PNG, GIF, and WebP images are allowed"), false);
+  }
+};
 
 const upload = multer({
   storage,
   limits: { fileSize: 20 * 1024 * 1024 },
+  fileFilter: imageFilter,
 });
 
 // routes
+
+router.post("/register", register);
+router.post("/login", login);
+router.post("/logout", logout);
 
 router.post(
   "/update_profile_picture",
@@ -56,9 +73,6 @@ router.post(
   uploadProfilePicture
 );
 
-router.post("/register", register);
-router.post("/login", login);
-
 router.post(
   "/update_cover_picture",
   (req, res, next) => {
@@ -74,12 +88,11 @@ router.post(
   },
   uploadCoverPicture
 );
-router.post("/user_update", updateUserProfile);
 
+router.post("/user_update", updateUserProfile);
 router.get("/get_user_and_profile", getUserProfile);
 router.post("/update_profile_data", updateProfileData);
 router.get("/get_all_user_profile", getAllUserProfile);
-
 router.get("/user/download_resume", downloadProfile);
 
 router.post("/user/send_connection_request", sendConnectionRequests);

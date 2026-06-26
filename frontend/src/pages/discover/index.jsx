@@ -77,7 +77,7 @@ export default function Discoverpage(){
                             <div key={p._id} className={styles.userTag} onClick={() => navigate(`/user/${user._id}`)}>
                                 <div className={styles.userTagAvatar}>
                                         {user.profilePicture ? (
-                                            <img src={`https://socialmedia-3yhq.onrender.com/${user.profilePicture}`} alt="" />
+                                            <img src={`https://socialmedia-3yhq.onrender.com/uploads/${user.profilePicture}`} alt="" />
                                         ) : (
                                             <span>{user.name?.charAt(0)?.toUpperCase() || "?"}</span>
                                         )}
